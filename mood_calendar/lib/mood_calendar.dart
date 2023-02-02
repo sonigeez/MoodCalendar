@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:localstore/localstore.dart';
 import 'package:mood_calendar/selected_model.dart';
+import 'package:mood_calendar/services/notification_service.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import 'utils.dart';
@@ -16,6 +17,15 @@ class MoodCalendar extends StatefulWidget {
 
 class MoodCalendarState extends State<MoodCalendar> {
   final db = Localstore.instance;
+  NotificationService notificationService = NotificationService();
+
+  Future<void> onCreate() async {
+    await notificationService.showNotification(
+      0,
+      "_textEditingController.text",
+      "A new event has been created.",
+    );
+  }
 
   // Using a `Set` is recommended due to equality comparison override
   final Set<DateTime> _selectedDays = {};

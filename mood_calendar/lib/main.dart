@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:mood_calendar/services/notification_service.dart';
 
 import 'mood_calendar.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  NotificationService notificationService = NotificationService();
+  await notificationService.init();
   runApp(const MyApp());
 }
 
