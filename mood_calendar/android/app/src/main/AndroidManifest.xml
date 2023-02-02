@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mood_calendar">
+    package="com.mood_calendar.emoji">
    <application
         android:label="Mood Calendar"
         android:name="${applicationName}"
